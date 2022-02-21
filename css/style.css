@@ -1,0 +1,28 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+}
+
+.pad-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
