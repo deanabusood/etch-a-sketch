@@ -7,7 +7,6 @@ function createPad(size = 16){
     pad.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     pad.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 
-
     for(let i = 0; i < totalDivs; i++){
         let padDiv = document.createElement("div");
 
@@ -15,8 +14,8 @@ function createPad(size = 16){
         padDiv.style.width = `${divSize}px`;
         padDiv.classList.add("inner-pad");
 
-        padDiv.addEventListener('mouseover', () => {
-            padDiv.style.background = "darkolivegreen";
+        padDiv.addEventListener('mouseover', () =>{
+            padDiv.style.background = "darkslategrey";
         });
         pad.appendChild(padDiv);
     }
@@ -42,7 +41,7 @@ function triggerColor(){
     const padDivs = document.querySelectorAll(".inner-pad");
         padDivs.forEach(div => {
         div.addEventListener("mouseover", () =>{
-            div.style.backgroundColor = "darkolivegreen";
+            div.style.background = "darkslategrey";
         });
     });
 }
