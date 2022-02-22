@@ -2,22 +2,29 @@
 function createPad(size = 16){
     const pad = document.querySelector(".pad");
     let totalDivs = size * size;
-    let width = 960 / size;
+    let divSize = `${800/size}px`;
+
+    pad.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+    pad.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+
 
     for(let i = 0; i < totalDivs; i++){
-        let div = document.createElement("div");
-        div.classList.add("inner-pad");
-        div.setAttribute("style", "background-color: white;");
+        let padDiv = document.createElement("div");
 
-        div.addEventListener('mouseover', () => {
-            div.style.backgroundColor = "darkolivegreen";
+        padDiv.style.height = `${divSize}px`;
+        padDiv.style.width = `${divSize}px`;
+        padDiv.classList.add("inner-pad");
+
+        padDiv.addEventListener('mouseover', () => {
+            padDiv.style.background = "darkolivegreen";
         });
-
-        pad.appendChild(div);
+        pad.appendChild(padDiv);
     }
 }
 
-function changePadSize(size){
+function changePadSize(){
+    const size = prompt("Input a number between 2-100");
+    
     if(size >= 2 && size <= 100){
     const padDivs = document.querySelectorAll(".inner-pad");
         padDivs.forEach(div => {
@@ -26,31 +33,9 @@ function changePadSize(size){
     createPad(size);
     }  
     else{
-        //alert or do trigger something
-        return;
+        alert("Please input a valid number between 2-100");
     }
 }
-
-//applies function for each button clicked
-function buttonClicked(button){
-    if(button == "color-button"){
-        triggerColor();
-    }
-    else if(button == "eraser-button"){
-        triggerEraser();
-    }
-    else if(button == "clear-button"){
-        clearPad();
-    }
-}
-
-// event listener added on every button
-const buttons = document.querySelectorAll("button");
-buttons.forEach(button =>{
-    button.addEventListener('click', () =>{
-        buttonClicked(button.id);
-    });
-});
 
 // controls black button
 function triggerColor(){
@@ -80,7 +65,29 @@ function clearPad(){
 });   
 }
 
+// event listener added on every button
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button =>{
+    button.addEventListener('click', () =>{
+        buttonClicked(button.id);
+    });
+});
+
+// applies function for each button clicked
+function buttonClicked(button){
+    if(button == "color-button"){
+        triggerColor();
+    }
+    else if(button == "eraser-button"){
+        triggerEraser();
+    }
+    else if(button == "changepad-button"){
+        changePadSize();
+    }
+    else if(button == "clear-button"){
+        clearPad();
+    }
+}
 
 
 createPad();
-
