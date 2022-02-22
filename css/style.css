@@ -38,13 +38,17 @@ body {
 .pad {
   height: 700px;
   width: 960px;
-  border: 50px black groove;
+  border: 40px black groove;
 
   display: flex;
   flex-wrap: wrap;
 }
 
 .inner-pad {
-  flex-grow: 1;
+  flex: 1;
   flex-wrap: wrap;
+}
+
+#clear-button {
+  margin-left: 700px;
 }
