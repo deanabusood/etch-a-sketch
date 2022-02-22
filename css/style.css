@@ -2,19 +2,21 @@ html {
   box-sizing: border-box;
 }
 
-body {
-  background-color: rgb(164, 182, 208);
-}
-
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
 
+body {
+  background-color: rgb(164, 182, 208);
+}
+
+/* flex container and top */
 #container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .top {
@@ -22,17 +24,13 @@ body {
   margin-bottom: 50px;
 }
 
+/* etch a sketch content */
 #pad-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
-}
-
-.buttons {
-  display: flex;
-  gap: 10px;
 }
 
 .pad {
@@ -43,6 +41,12 @@ body {
   display: grid;
   background-color: white;
   flex-flow: row wrap;
+}
+
+/* button content */
+.buttons {
+  display: flex;
+  gap: 10px;
 }
 
 #changepad-button {
